@@ -16,7 +16,10 @@ let numCorSelecionada = 1;
 
 
 function atualizarCorSelecionada() {
-  const opcaoCorSelecionada = document.querySelector('[name="opcao-cor"]:checked').id.charAt(0);
+  const opcaoCorSelecionada = document
+    .querySelector('[name="opcao-cor"]:checked')
+    .id.charAt(0);
+
   numCorSelecionada = opcaoCorSelecionada;
 
   const nomeCor = opcoesCores[numCorSelecionada];
@@ -24,39 +27,96 @@ function atualizarCorSelecionada() {
 
   nomeCorSelecionada.innerText = "Cor - " + nomeCor;
 
-  imagemVisualizacao.src = "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-" + numImagemSelecionada + ".jpeg";
+  // Remove fade-in se existir
+  imagemVisualizacao.classList.remove("fade-in");
 
+  // Aplica fade-out
+  imagemVisualizacao.classList.add("fade-out");
 
-  imagemMiniatura0.src = "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-0.jpeg";
-  imagemMiniatura1.src = "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-1.jpeg";
-  imagemMiniatura2.src = "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-2.jpeg";
+  setTimeout(() => {
+    imagemVisualizacao.src =
+      "./imagens/opcoes-cores/imagens-" +
+      pastaCor +
+      "/imagem-" +
+      numImagemSelecionada +
+      ".jpeg";
 
+    imagemMiniatura0.src =
+      "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-0.jpeg";
+    imagemMiniatura1.src =
+      "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-1.jpeg";
+    imagemMiniatura2.src =
+      "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-2.jpeg";
 
-  tituloProduto.innerText = "Pulseira loop esportiva " + nomeCor.toLowerCase() + " para caixa de " + opcoesTamanhos[numTamanhoSelecionado];
+    // Remove fade-out e aplica fade-in
+    imagemVisualizacao.classList.remove("fade-out");
+    imagemVisualizacao.classList.add("fade-in");
+  }, 200);
+
+  tituloProduto.innerText =
+    "Pulseira loop esportiva " +
+    nomeCor.toLowerCase() +
+    " para caixa de " +
+    opcoesTamanhos[numTamanhoSelecionado];
 }
+
 
 
 function atualizarTamanho() {
-  const opcaoTamanhoSelecionado = document.querySelector('[name="opcao-tamanho"]:checked').id.charAt(0);
-  numTamanhoSelecionado = opcaoTamanhoSelecionado;
+  const opcaoTamanhoSelecionado = document
+    .querySelector('[name="opcao-tamanho"]:checked')
+    .id.charAt(0);
 
+  numTamanhoSelecionado = opcaoTamanhoSelecionado;
   const tamanhoCaixa = opcoesTamanhos[numTamanhoSelecionado];
 
-  tituloProduto.innerText = "Pulseira loop esportiva " + opcoesCores[numCorSelecionada].toLowerCase() + " para caixa de " + tamanhoCaixa;
+  // Remove fade-in se existir
+  imagemVisualizacao.classList.remove("fade-in");
 
-  if (tamanhoCaixa === "41 mm") {
-    imagemVisualizacao.classList.add("caixa-pequena");
-  } else {
-    imagemVisualizacao.classList.remove("caixa-pequena");
-  }
+  // Aplica fade-out
+  imagemVisualizacao.classList.add("fade-out");
+
+  setTimeout(() => {
+    tituloProduto.innerText =
+      "Pulseira loop esportiva " +
+      opcoesCores[numCorSelecionada].toLowerCase() +
+      " para caixa de " +
+      tamanhoCaixa;
+
+    if (tamanhoCaixa === "41 mm") {
+      imagemVisualizacao.classList.add("caixa-pequena");
+    } else {
+      imagemVisualizacao.classList.remove("caixa-pequena");
+    }
+
+    // Remove fade-out e aplica fade-in
+    imagemVisualizacao.classList.remove("fade-out");
+    imagemVisualizacao.classList.add("fade-in");
+  }, 200);
 }
 
 
-function atualizarImagemSelcionada() {
-  const opcaoImagemSelecionada = document.querySelector('[name="opcao-imagem"]:checked').id.charAt(0);
-  numImagemSelecionada = opcaoImagemSelecionada;
 
+function atualizarImagemSelcionada() {
+  const opcaoImagemSelecionada = document
+    .querySelector('[name="opcao-imagem"]:checked')
+    .id.charAt(0);
+
+  numImagemSelecionada = opcaoImagemSelecionada;
   const pastaCor = pastasCores[numCorSelecionada];
 
-  imagemVisualizacao.src = "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-" + numImagemSelecionada + ".jpeg";
+  imagemVisualizacao.classList.remove("fade-in");
+  imagemVisualizacao.classList.add("fade-out");
+
+  setTimeout(() => {
+    imagemVisualizacao.src =
+      "./imagens/opcoes-cores/imagens-" +
+      pastaCor +
+      "/imagem-" +
+      numImagemSelecionada +
+      ".jpeg";
+
+    imagemVisualizacao.classList.remove("fade-out");
+    imagemVisualizacao.classList.add("fade-in");
+  }, 200);
 }
