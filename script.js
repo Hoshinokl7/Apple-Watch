@@ -27,10 +27,10 @@ function atualizarCorSelecionada() {
 
   nomeCorSelecionada.innerText = "Cor - " + nomeCor;
 
-  // Remove fade-in se existir
+
   imagemVisualizacao.classList.remove("fade-in");
 
-  // Aplica fade-out
+ 
   imagemVisualizacao.classList.add("fade-out");
 
   setTimeout(() => {
@@ -48,7 +48,6 @@ function atualizarCorSelecionada() {
     imagemMiniatura2.src =
       "./imagens/opcoes-cores/imagens-" + pastaCor + "/imagem-2.jpeg";
 
-    // Remove fade-out e aplica fade-in
     imagemVisualizacao.classList.remove("fade-out");
     imagemVisualizacao.classList.add("fade-in");
   }, 200);
@@ -61,7 +60,6 @@ function atualizarCorSelecionada() {
 }
 
 
-
 function atualizarTamanho() {
   const opcaoTamanhoSelecionado = document
     .querySelector('[name="opcao-tamanho"]:checked')
@@ -70,10 +68,8 @@ function atualizarTamanho() {
   numTamanhoSelecionado = opcaoTamanhoSelecionado;
   const tamanhoCaixa = opcoesTamanhos[numTamanhoSelecionado];
 
-  // Remove fade-in se existir
   imagemVisualizacao.classList.remove("fade-in");
 
-  // Aplica fade-out
   imagemVisualizacao.classList.add("fade-out");
 
   setTimeout(() => {
@@ -89,7 +85,6 @@ function atualizarTamanho() {
       imagemVisualizacao.classList.remove("caixa-pequena");
     }
 
-    // Remove fade-out e aplica fade-in
     imagemVisualizacao.classList.remove("fade-out");
     imagemVisualizacao.classList.add("fade-in");
   }, 200);
